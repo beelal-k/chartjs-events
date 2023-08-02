@@ -43,10 +43,14 @@ function App() {
 
   const onClick = (event) => {
 
+    // checking time upon clicking
     setAfterHover(parseInt(Date.now()));
+
+    // subtracting and getting the time hovered on the data // TODO fix this, it isnt operating correctly
     setFinalTime(Math.abs(beforeHover - afterHover) / 1000);
+
+    // display the div for the time hovered
     setDisplay(true);
-    console.log("You hovered for: ", finalTime, "seconds");
 
   }
 
@@ -56,11 +60,12 @@ function App() {
 
       if (chartElements.length > 0) {
 
+        // the time at which hovering started
         setBeforeHover(parseInt(Date.now()));
+
+        // get the index for the data that was hovered on and get its name
         const hoverIdx = chartElements[0].index;
         setIndex(data.labels[hoverIdx]);
-        // setIndex(chartElements[0]);
-
       }
 
     },
